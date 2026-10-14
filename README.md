@@ -1,8 +1,8 @@
-# Portfólio — Antonio Cavalcante
+# Portfólio — Antônio Cavalcante
 
 Portfólio profissional: Next.js (App Router) + Three.js/React Three Fiber + Tailwind v4 + Framer Motion. Dark mode por padrão, liquid glass, i18n PT/EN client-side sem dependências.
 
-**Construído de ponta a ponta com meu próprio pipeline de entrega assistido por IA** ([pipeline-Claude](https://github.com/Carloscavalcante97/pipeline-Claude)): Planner → Coder → Simplifier → Tester → Reviewer, com gates entre estágios. Os handoffs de cada run estão em [`.pipeline/history/`](.pipeline/history/) — spec, changes, test results e review de cada feature.
+**Construído de ponta a ponta com meu próprio pipeline de entrega assistido por IA** ([pipeline-Claude](https://github.com/Carloscavalcante97/pipeline-Claude)): Planner → Coder → Simplifier → Tester → E2E → Reviewer, com gates entre estágios. Os handoffs de cada run estão em [`.pipeline/history/`](.pipeline/history/) — spec, changes, test results e review de cada feature.
 
 ## Stack
 

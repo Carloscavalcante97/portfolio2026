@@ -46,12 +46,17 @@ export function ContactSection(): React.JSX.Element {
   const { t } = useLanguage();
 
   return (
-    <section id="contato" className="scroll-mt-14 py-24 md:py-32">
+    <section id="contato" className="scroll-mt-14 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex flex-col gap-6 mb-12">
+          <Reveal>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
+              <span className="text-cta-ink">06</span> / {t.contact.label}
+            </span>
+          </Reveal>
           <Reveal delay={0.08}>
             <h2
-              className="font-display text-foreground"
+              className="font-display text-foreground leading-[1.02]"
               style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
             >
               {t.contact.heading}
@@ -85,7 +90,7 @@ export function ContactSection(): React.JSX.Element {
         </Reveal>
 
         <footer className="mt-24 border-t border-[var(--glass-border)] py-8 font-mono text-xs text-muted flex flex-wrap gap-2 justify-between">
-          <span>Antonio Cavalcante · {new Date().getFullYear()}</span>
+          <span>Antônio Cavalcante · {new Date().getFullYear()}</span>
           <span>{t.footer.madeWith}</span>
         </footer>
       </div>
