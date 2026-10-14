@@ -16,6 +16,7 @@
   --glass-highlight: rgba(255, 255, 255, 0.9);
   --secondary-ink: #b45309;             /* laranja Java escurecido p/ texto no light — AA sobre #f8fafc */
   --cta-ink: #047857;                   /* verde p/ texto — AA sobre #f8fafc */
+  --primary-ink: #512BD4;               /* roxo p/ texto — AA sobre #f8fafc */
 }
 
 .dark {
@@ -25,6 +26,7 @@
   /* accent colors are identical in both themes */
   --secondary-ink: #f89820;             /* laranja Java — ~9:1 sobre #0a0e14 */
   --cta-ink: #34d399;                   /* verde claro p/ texto — AA sobre #0a0e14 */
+  --primary-ink: #a78bfa;               /* roxo claro p/ texto — o #512BD4 não passa AA no dark */
   --glass-bg: rgba(255, 255, 255, 0.04);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-highlight: rgba(255, 255, 255, 0.25);
@@ -39,6 +41,7 @@
   --color-secondary: var(--secondary);
   --color-secondary-ink: var(--secondary-ink);
   --color-cta-ink: var(--cta-ink);
+  --color-primary-ink: var(--primary-ink);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-jetbrains-mono);
   --font-display: var(--font-instrument-serif);
@@ -97,9 +100,23 @@ body::after {
   }
 }
 
+/* Tech marquee — the track holds the list twice, so -50% loops seamlessly */
+.marquee-track {
+  animation: marquee 45s linear infinite;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .marquee-track {
+    animation: none;
   }
   body,
   .glass {

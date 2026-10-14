@@ -5,13 +5,14 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useTheme } from "next-themes";
 import * as THREE from "three";
 
-// Color journey: one stop per section (hero → sobre → entregas → projetos → stack → contato).
+// Color journey: one stop per section (hero → sobre → projetos → pipeline → experiência → stack → contato).
 // Scroll progress lerps smoothly between adjacent stops — the nebula gas is tinted by it.
 const COLOR_STOPS = [
   "#512BD4", // hero — roxo .NET
   "#7c3aed", // sobre — roxo mais claro
-  "#10b981", // entregas — verde esmeralda
   "#f89820", // projetos — laranja Java
+  "#10b981", // pipeline — verde esmeralda
+  "#2563eb", // experiência — azul
   "#512BD4", // stack — de volta ao roxo
   "#10b981", // contato — verde CTA
 ].map((c) => new THREE.Color(c));

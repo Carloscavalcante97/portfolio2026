@@ -21,16 +21,16 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Antonio Cavalcante | Full-stack Engineer",
+  title: "Antônio Cavalcante | Software Engineer",
   description:
-    "Full-stack engineer com alma de backend em C#, Java e NestJS. Sistemas em produção de ponta a ponta e pipeline de desenvolvimento assistido por IA que reduziu o tempo de correção em ~75%.",
+    "Engenheiro de software full-stack na Souv: APIs em NestJS, apps em Next.js e React Native, dados em Python e um pipeline de agentes de IA que reduziu o tempo de correção em ~75%.",
   openGraph: {
-    title: "Antonio Cavalcante | Full-stack Engineer",
+    title: "Antônio Cavalcante | Software Engineer",
     description:
-      "Full-stack engineer com alma de backend em C#, Java e NestJS. Sistemas em produção de ponta a ponta e pipeline de desenvolvimento assistido por IA.",
+      "Full-stack de ponta a ponta: NestJS, Next.js, React Native, Python para dados e agentes de IA em produção.",
     type: "website",
     locale: "pt_BR",
-    siteName: "Antonio Cavalcante",
+    siteName: "Antônio Cavalcante",
   },
 };
 

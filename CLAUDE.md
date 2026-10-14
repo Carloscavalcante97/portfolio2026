@@ -1,10 +1,10 @@
-# Portfólio — Antonio Carlos Cavalcante
+# Portfólio — Antônio Carlos Cavalcante
 
 Portfólio profissional que funciona como propaganda: o visitante entende em 10 segundos quem é o dev, o que ele entrega, e tem um botão de contato sempre à mão.
 
 ## Posicionamento
 
-Full-stack engineer com alma de backend (C#, Java, NestJS). Constrói sistemas em produção de ponta a ponta e se importa com código que sobrevive ao contato com usuários reais. Diferencial: pipeline de desenvolvimento assistido por IA (spec-driven, 4 agentes: planner, coder, tester, reviewer) que reduziu tempo de correção em ~75%.
+Engenheiro de software full-stack (Pleno na Souv desde 08/2026): NestJS, Next.js e React Native no produto, Python para dados (ETL, otimização, process mining) e agentes de IA em produção. Diferencial: pipeline de entrega spec-driven com 6 estágios (planner, coder, simplifier, tester, e2e, reviewer), usado diariamente pelo time, que reduziu o tempo de correção em ~75%. Nome com acento: **Antônio**.
 
 ## Stack do site
 
@@ -48,33 +48,15 @@ Full-stack engineer com alma de backend (C#, Java, NestJS). Constrói sistemas e
 
 ## Seções (uma página, scroll contínuo)
 
-1. **Hero** — nome, título ("Full-stack Engineer — Backend em C#, Java e NestJS"), cena 3D, dois CTAs imediatos: "Fale comigo" (WhatsApp) e "Ver projetos".
-2. **About** — versão enxuta do texto abaixo (fonte da verdade em `content/about`), com badges da stack.
-3. **Destaques / O que venho entregando** — 4 cards:
-   - Módulo full-stack de gestão da qualidade (NestJS + PostgreSQL, registros imutáveis, numeração sequencial atômica, Next.js, monorepo pnpm + Turborepo)
-   - Pipeline de dev assistido por IA — 4 agentes, ~75% menos tempo de correção (destaque visual maior; é o diferencial)
-   - Refatoração de backend + integração WhatsApp + CI/CD para plataforma B2B de eventos
-   - Manutenção e evolução de sistemas .NET + SQL Server em produção
-4. **Projetos** — cards curados do GitHub (lista abaixo), cada um com stack, descrição de 1 linha orientada a resultado, link pro repo e demo quando houver.
-5. **Skills** — TypeScript, AI Integration/LLM APIs, Node.js, Docker/Cloud, Next.js (as 5 do LinkedIn) + stack completa em badges menores.
-6. **Contato** — CTA forte: botões diretos WhatsApp (`https://wa.me/5511947832280`), e-mail (antonio.developer@icloud.com), LinkedIn, GitHub. Sem formulário — contato direto converte mais.
+1. **Hero** — status (cargo · cidade), nome, título, foto (`public/antonio.jpg`), CTAs WhatsApp e "Ver projetos", faixa de 4 métricas (−75%, −70%, +35%, +15%) e marquee de stack logo abaixo.
+2. **01 Sobre** — 2 parágrafos + ficha (cargo, base, formação, idiomas).
+3. **02 Projetos** — sistemas reais da Souv em produção, **sem citar clientes** (domínio genérico: "rede hospitalar", "fábrica de embalagens"...). Cada card diz o papel do Antônio; trabalho de time é dito como tal (ex.: otimizador genético do APS).
+4. **03 Pipeline** — painel com o terminal animado do `/pipeline` + −75%, e lista de repos abertos (stack-cli, portfolio2026, Gerenciamento-De-Produtos).
+5. **04 Experiência** — Souv (Pleno e Full Stack), Denzel Eventos, Pontes Hotéis.
+6. **05 Stack** — grupos Produto / Dados / IA e automação / Plataforma + linha "Também".
+7. **06 Contato** — WhatsApp (`https://wa.me/5511947832280`), e-mail, LinkedIn (`/in/antonio-dev-/`), GitHub. Sem formulário.
 
-Botão flutuante de WhatsApp presente durante todo o scroll.
-
-## Projetos curados (GitHub: Carloscavalcante97)
-
-Apenas estes — o resto do perfil é exercício de curso e não entra:
-
-| Repo | Pitch |
-|---|---|
-| `Gerenciamento-De-Produtos` | Monorepo full-stack Java 17 + Spring Boot + React + Docker Compose, entregue em desafio técnico de 2 dias |
-| `CashFlow` | API C#/.NET de controle financeiro com relatórios e validações de integridade |
-| `BarberBoss` | API .NET 8 com DDD para gestão de barbearias |
-| `CSharp-TechLibrary` | API .NET 9, DDD, EF, FluentValidation, Swagger |
-| `Api-Eventos` | API REST TypeScript de venda de ingressos com validação robusta |
-| `pipeline-Claude` | Pipeline de dev com 4 agentes IA (planner/coder/tester/reviewer) — vitrine do diferencial |
-
-> Pendência: `pipeline-Claude` precisa de README/descrição no GitHub antes do lançamento.
+Botão flutuante de WhatsApp presente durante todo o scroll. Conteúdo PT/EN fica todo em `src/content/site.ts`.
 
 ## Conteúdo
 

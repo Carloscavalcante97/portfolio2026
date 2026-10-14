@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/components/language-provider";
 
-const IDS = ["hero", "about", "destaques", "projetos", "skills", "contato"] as const;
+const IDS = ["hero", "about", "projetos", "pipeline", "experiencia", "skills", "contato"] as const;
 
 export function SectionNav(): React.JSX.Element {
   const { t } = useLanguage();
@@ -12,8 +12,9 @@ export function SectionNav(): React.JSX.Element {
   const items = [
     { id: "hero", label: t.hero.label },
     { id: "about", label: t.about.label },
-    { id: "destaques", label: t.highlights.label },
     { id: "projetos", label: t.projects.label },
+    { id: "pipeline", label: t.pipeline.label },
+    { id: "experiencia", label: t.experience.label },
     { id: "skills", label: t.skills.label },
     { id: "contato", label: t.contact.label },
   ];

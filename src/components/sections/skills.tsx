@@ -1,50 +1,43 @@
 "use client";
 
+import { Fragment } from "react";
 import { Reveal } from "@/components/reveal";
+import { SectionHeading } from "@/components/section-heading";
 import { useLanguage } from "@/components/language-provider";
 
 export function SkillsSection(): React.JSX.Element {
   const { t } = useLanguage();
 
   return (
-    <section id="skills" className="scroll-mt-14 py-24 md:py-32">
+    <section id="skills" className="scroll-mt-14 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-12 flex flex-col gap-4">
-          <Reveal delay={0.08}>
-            <h2 className="font-display text-4xl md:text-5xl text-foreground">
-              {t.skills.heading}
-            </h2>
-          </Reveal>
-        </div>
+        <SectionHeading index="05" label={t.skills.label} heading={t.skills.heading} />
 
-        {/* Editorial top-5 list */}
-        <div className="flex flex-col">
-          {t.skills.top.map((name, i) => (
-            <Reveal key={name} delay={i * 0.08}>
-              <div className="flex items-baseline gap-4 border-b border-[var(--glass-border)] py-4">
-                <span className="font-mono text-xs text-muted w-6 shrink-0">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="font-display text-3xl md:text-4xl text-foreground">
-                  {name}
-                </span>
+        {/* Editorial rows: group on the left, stack on the right */}
+        <div className="flex flex-col border-t border-[var(--glass-border)]">
+          {t.skills.groups.map((g, i) => (
+            <Reveal key={g.name} delay={i * 0.08}>
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 py-6 border-b border-[var(--glass-border)]">
+                <div className="md:col-span-3 flex items-baseline gap-4">
+                  <span className="font-mono text-xs text-muted">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="font-mono text-sm uppercase tracking-[0.18em] text-secondary-ink">{g.name}</span>
+                </div>
+                <p className="md:col-span-9 font-display text-2xl md:text-3xl text-foreground leading-snug">
+                  {g.items.map((item, j) => (
+                    // nowrap only on the name, so lines can still break at the separators
+                    <Fragment key={item}>
+                      <span className="whitespace-nowrap">{item}</span>
+                      {j < g.items.length - 1 && <span className="text-muted/50"> / </span>}
+                    </Fragment>
+                  ))}
+                </p>
               </div>
             </Reveal>
           ))}
         </div>
 
-        {/* Rest — mono badges */}
-        <Reveal delay={0.48}>
-          <div className="flex flex-wrap gap-2 mt-8">
-            {t.skills.rest.map((badge) => (
-              <span
-                key={badge}
-                className="font-mono text-xs px-2.5 py-1 rounded-md border border-[var(--glass-border)] text-muted"
-              >
-                {badge}
-              </span>
-            ))}
-          </div>
+        <Reveal delay={0.4}>
+          <p className="mt-6 font-mono text-xs text-muted">{t.skills.also}</p>
         </Reveal>
       </div>
     </section>
