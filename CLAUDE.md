@@ -35,7 +35,7 @@ Referências: landonorris.com (tipografia mista, uma cor de destaque, títulos e
 - Grid editorial assimétrico, `max-w-7xl`. Linhas com divisória fina (`border-line`), não cards.
 - Pipeline é um bloco de tela cheia (`bg-surface`) com o "0" gigante e a tabela do teste comparativo.
 - Botões retangulares (raio 3px) com texto em grotesca pesada; magnetismo discreto.
-- Foto pequena, sem moldura, com legenda em mono.
+- Foto em P&B com tom quente (duotone gerado de `#121411` a `#eee9e2`, recorte 4:5), grande no hero (5 de 12 colunas), legenda em mono abaixo. Nunca foto colorida com fundo saturado.
 - Barra de progresso de leitura no topo (no lugar de pontos laterais).
 
 ### Movimento (contenção)
@@ -49,7 +49,7 @@ Referências: landonorris.com (tipografia mista, uma cor de destaque, títulos e
 
 ## Seções (uma página, scroll contínuo)
 
-1. **Hero** — status, nome gigante (ANTÔNIO em grotesca + *Cavalcante* em serifa verde), título, foto pequena com legenda, CTA "Entrar em contato" (e-mail) e "Ver projetos", 4 métricas gigantes (0 retrabalho, −70%, +35%, +15%).
+1. **Hero** — status, nome gigante (ANTÔNIO em grotesca + *Cavalcante* em serifa verde), título, foto grande em duotone com legenda, CTA "Entrar em contato" (e-mail) e "Ver projetos", 4 métricas gigantes (0 retrabalho, −70%, +35%, +15%).
 2. **Manifesto** — uma frase em caixa alta com 3 palavras-chave em serifa verde, acendendo com o scroll.
 3. **Sobre** — 2 parágrafos + ficha (cargo, base, formação com previsão 2027, idiomas).
 4. **Projetos** — sistemas reais da Souv em produção, **sem citar clientes nem detalhes que os identifiquem** (nada de nome de ERP, gateway de pagamento, modelo de negócio específico ou achados de segurança). Cada card diz o papel do Antônio; trabalho de time é dito como tal.
