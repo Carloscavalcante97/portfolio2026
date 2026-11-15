@@ -9,7 +9,7 @@ export function AboutSection(): React.JSX.Element {
 
   return (
     <section id="about" className="scroll-mt-14 py-16 md:py-24">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <SectionHeading label={t.about.label} heading={t.about.heading} />
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
@@ -24,9 +24,9 @@ export function AboutSection(): React.JSX.Element {
           </div>
 
           <Reveal delay={0.24} className="md:col-span-4 md:col-start-9">
-            <dl className="glass rounded-2xl p-6 flex flex-col divide-y divide-[var(--glass-border)]">
+            <dl className="border-t border-line flex flex-col divide-y divide-line">
               {t.about.facts.map(({ k, v }) => (
-                <div key={k} className="flex flex-col gap-1 py-3 first:pt-0 last:pb-0">
+                <div key={k} className="flex flex-col gap-1 py-4">
                   <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted">{k}</dt>
                   <dd className="text-foreground">{v}</dd>
                 </div>

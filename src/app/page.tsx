@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/sections/hero";
+import { ManifestoSection } from "@/components/sections/manifesto";
 import { AboutSection } from "@/components/sections/about";
 import { ProjectsSection } from "@/components/sections/projects";
 import { BeyondSection } from "@/components/sections/beyond";
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
+      <ManifestoSection />
       <AboutSection />
       <ProjectsSection />
       <BeyondSection />

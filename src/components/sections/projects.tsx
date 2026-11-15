@@ -1,79 +1,75 @@
 "use client";
 
-import { CountUp } from "@/components/count-up";
-import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { TiltCard } from "@/components/tilt-card";
 import { useLanguage } from "@/components/language-provider";
 
-// Zigzag rows of 7+5, 5+7, 7+5 — never 3 equal columns
-const SPANS = ["md:col-span-7", "md:col-span-5", "md:col-span-5", "md:col-span-7", "md:col-span-7", "md:col-span-5"];
-
+// Editorial rows: big index + domain on the left, the story on the right
 export function ProjectsSection(): React.JSX.Element {
   const { t } = useLanguage();
   const p = t.projects;
 
   return (
-    <section id="projetos" className="scroll-mt-14 py-16 md:py-24">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="projetos" className="scroll-mt-14 py-16 md:py-28">
+      <div className="mx-auto max-w-7xl px-6">
         <SectionHeading label={p.label} heading={p.heading} />
-        <Reveal delay={0.12}>
-          <p className="-mt-6 md:-mt-10 mb-12 max-w-2xl text-muted text-lg">{p.intro}</p>
-        </Reveal>
+        <p className="-mt-4 md:-mt-6 mb-14 max-w-2xl text-muted text-lg">{p.intro}</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-          {p.items.map((item, i) => {
-            const featured = i === 0;
-            return (
-              <Reveal key={item.title} delay={(i % 3) * 0.06} className={SPANS[i] ?? "md:col-span-6"}>
-                <TiltCard className={`h-full flex flex-col gap-5 ${featured ? "p-7 md:p-9" : "p-6 md:p-7"}`}>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">{item.domain}</span>
+        <div className="flex flex-col border-t border-line">
+          {p.items.map((item, i) => (
+            <article
+              key={item.title}
+              className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-10 md:py-14 border-b border-line"
+            >
+              <div className="md:col-span-4 flex md:flex-col gap-4 md:gap-3 items-baseline md:items-start">
+                <span className="type-heavy text-muted/40" style={{ fontSize: "clamp(3rem, 6vw, 5.5rem)" }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="eyebrow text-[11px]">{item.domain}</span>
+              </div>
 
-                  <div className="flex flex-col gap-2">
-                    <h3 className={`font-display text-foreground leading-tight ${featured ? "text-3xl md:text-4xl" : "text-2xl"}`}>
-                      {item.title}
-                    </h3>
-                    <p className="text-muted leading-relaxed">{item.summary}</p>
+              <div className="md:col-span-8 flex flex-col gap-5">
+                <div className="flex flex-col gap-3">
+                  <h3 className="type-heavy text-foreground" style={{ fontSize: "clamp(1.9rem, 3.4vw, 3rem)", lineHeight: 0.95 }}>
+                    {item.title}
+                  </h3>
+                  <p className="text-muted text-lg leading-relaxed max-w-2xl">{item.summary}</p>
+                </div>
+
+                <ul className="flex flex-col gap-2 max-w-2xl">
+                  {item.points.map((point) => (
+                    <li key={point} className="flex gap-3 leading-relaxed text-foreground/85">
+                      <span aria-hidden="true" className="font-mono text-cta-ink">—</span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {item.metric && (
+                  <div className="flex items-end gap-3">
+                    <span className="type-heavy text-cta-ink" style={{ fontSize: "clamp(3rem, 5vw, 4.5rem)" }}>
+                      {item.metric.prefix}
+                      {item.metric.value}
+                      {item.metric.suffix}
+                    </span>
+                    <span className="font-mono text-xs text-muted pb-2">{item.metric.caption}</span>
                   </div>
+                )}
 
-                  <ul className="flex flex-col gap-2">
-                    {item.points.map((point) => (
-                      <li key={point} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
-                        <span aria-hidden="true" className="font-mono text-muted/60">—</span>
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-auto flex flex-col gap-4">
-                    {item.metric && (
-                      <div className="flex items-end gap-3">
-                        <CountUp
-                          to={item.metric.value}
-                          prefix={item.metric.prefix}
-                          suffix={item.metric.suffix}
-                          className="font-display text-5xl leading-none text-foreground"
-                        />
-                        <span className="font-mono text-xs text-muted pb-1">{item.metric.caption}</span>
-                      </div>
-                    )}
-                    <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--glass-border)] pt-4">
-                      <div className="flex flex-wrap gap-x-3 gap-y-1">
-                        {item.tags.map((tag) => (
-                          <span key={tag} className="font-mono text-xs text-muted">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      <span className="font-mono text-[11px] text-muted">
-                        {p.roleLabel}: <span className="text-foreground">{item.role}</span>
+                <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+                  <div className="flex flex-wrap gap-x-3 gap-y-1">
+                    {item.tags.map((tag) => (
+                      <span key={tag} className="font-mono text-xs text-muted">
+                        {tag}
                       </span>
-                    </div>
+                    ))}
                   </div>
-                </TiltCard>
-              </Reveal>
-            );
-          })}
+                  <span className="font-mono text-[11px] text-muted">
+                    {p.roleLabel}: <span className="text-foreground">{item.role}</span>
+                  </span>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

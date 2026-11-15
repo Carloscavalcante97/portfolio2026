@@ -36,7 +36,7 @@ export function PipelineTerminal({
   }, [step, reduced, inView]);
 
   return (
-    <div ref={ref} className="glass rounded-2xl p-5 md:p-6 font-mono text-[13px] leading-relaxed">
+    <div ref={ref} className="rounded-[3px] border border-line bg-background p-5 md:p-6 font-mono text-[13px] leading-relaxed">
       <div className="flex items-center justify-between text-[11px] text-muted mb-4">
         <span>~/app · feat/rate-limit</span>
         <span className="inline-flex items-center gap-1.5">
@@ -76,7 +76,7 @@ export function PipelineTerminal({
       </ul>
 
       <p
-        className={`mt-4 pt-3 border-t border-[var(--glass-border)] text-[11px] text-muted transition-opacity duration-500 ${
+        className={`mt-4 pt-3 border-t border-line text-[11px] text-muted transition-opacity duration-500 ${
           shown >= STAGES.length ? "opacity-100" : "opacity-0"
         }`}
       >

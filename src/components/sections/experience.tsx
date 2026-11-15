@@ -10,31 +10,31 @@ export function ExperienceSection(): React.JSX.Element {
 
   return (
     <section id="experiencia" className="scroll-mt-14 py-16 md:py-24">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <SectionHeading label={e.label} heading={e.heading} />
 
-        <div className="flex flex-col border-t border-[var(--glass-border)]">
+        <div className="flex flex-col border-t border-line">
           {e.items.map((r, i) => (
             <Reveal key={`${r.company}-${r.period}`} delay={i * 0.06}>
-              <article className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 py-8 border-b border-[var(--glass-border)]">
+              <article className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 py-8 border-b border-line">
                 <div className="md:col-span-4 flex flex-col gap-1.5">
                   <span className="font-mono text-xs text-muted inline-flex items-center gap-2">
                     {r.period}
                     {r.current && (
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--glass-border)] px-2 py-0.5 text-cta-ink">
+                      <span className="inline-flex items-center gap-1.5 rounded-[3px] border border-line px-2 py-0.5 text-cta-ink">
                         <span className="size-1.5 rounded-full bg-cta-ink" />
                         {e.current}
                       </span>
                     )}
                   </span>
-                  <span className="font-display text-2xl text-foreground">{r.company}</span>
+                  <span className="type-heavy text-4xl text-foreground">{r.company}</span>
                 </div>
                 <div className="md:col-span-8 flex flex-col gap-3">
                   <h3 className="text-lg md:text-xl text-foreground">{r.role}</h3>
                   <ul className="flex flex-col gap-2">
                     {r.points.map((p) => (
                       <li key={p} className="text-muted leading-relaxed flex gap-3">
-                        <span aria-hidden="true" className="font-mono text-muted/60 pt-0.5">—</span>
+                        <span aria-hidden="true" className="font-mono text-cta-ink pt-0.5">—</span>
                         <span>{p}</span>
                       </li>
                     ))}

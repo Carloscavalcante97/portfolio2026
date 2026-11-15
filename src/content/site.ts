@@ -8,6 +8,15 @@ export const LINKS = {
   pipelineRepo: "https://github.com/Carloscavalcante97/pipeline-Claude",
 } as const;
 
+/** Título em duas linhas: a 1ª em grotesca pesada, a 2ª em serifa itálica */
+export type Split = [string, string];
+
+/** Trecho do manifesto; `em` = palavra-chave em serifa itálica verde */
+export interface ManifestoPart {
+  text: string;
+  em?: boolean;
+}
+
 export interface Metric {
   value: number;
   prefix: string;
@@ -62,14 +71,16 @@ export interface SiteContent {
     ctaTalk: string;
     ctaProjects: string;
     photoAlt: string;
+    photoCaption: string;
     metrics: Metric[];
   };
-  about: { label: string; heading: string; body: string[]; facts: { k: string; v: string }[] };
-  projects: { label: string; heading: string; intro: string; roleLabel: string; items: WorkProject[] };
-  beyond: { label: string; heading: string; intro: string; items: BeyondItem[] };
+  manifesto: { label: string; parts: ManifestoPart[] };
+  about: { label: string; heading: Split; body: string[]; facts: { k: string; v: string }[] };
+  projects: { label: string; heading: Split; intro: string; roleLabel: string; items: WorkProject[] };
+  beyond: { label: string; heading: Split; intro: string; items: BeyondItem[] };
   pipeline: {
     label: string;
-    heading: string;
+    heading: Split;
     title: string;
     body: string;
     points: string[];
@@ -80,11 +91,11 @@ export interface SiteContent {
     oss: Project[];
     all: string;
   };
-  experience: { label: string; heading: string; current: string; items: Role[] };
-  skills: { label: string; heading: string; groups: SkillGroup[]; also: string };
+  experience: { label: string; heading: Split; current: string; items: Role[] };
+  skills: { label: string; heading: Split; groups: SkillGroup[]; also: string };
   contact: {
     label: string;
-    heading: string;
+    heading: Split;
     sub: string;
     whatsapp: string;
     email: string;
@@ -110,6 +121,7 @@ export const site: Record<Lang, SiteContent> = {
       ctaTalk: "Entrar em contato",
       ctaProjects: "Ver projetos",
       photoAlt: "Foto de Antônio Cavalcante",
+      photoCaption: "Recife, 2026",
       metrics: [
         { value: 75, prefix: "−", suffix: "%", caption: "tempo de correção com meu pipeline de IA" },
         { value: 70, prefix: "−", suffix: "%", caption: "perdas de material com um sistema unificado" },
@@ -117,9 +129,20 @@ export const site: Record<Lang, SiteContent> = {
         { value: 15, prefix: "+", suffix: "%", caption: "satisfação do cliente (CSAT) com automação" },
       ],
     },
+    manifesto: {
+      label: "O que eu defendo",
+      parts: [
+        { text: "Código que" },
+        { text: "sobrevive", em: true },
+        { text: "ao usuário real, times que" },
+        { text: "contratam", em: true },
+        { text: "melhor e entregas que" },
+        { text: "se medem.", em: true },
+      ],
+    },
     about: {
       label: "Sobre",
-      heading: "Quem sou",
+      heading: ["Quem", "sou"],
       body: [
         "Sou engenheiro de software pleno na Souv e responsável técnico por módulos de ponta a ponta, do levantamento de requisitos ao deploy.",
         "Trabalho no produto (NestJS, Next.js, React Native), nos dados (ETL em Python, otimização e process mining para a indústria) e no jeito como o time entrega: criei um pipeline de agentes de IA, usado todo dia, que cortou ~75% do tempo gasto em correções.",
@@ -132,8 +155,8 @@ export const site: Record<Lang, SiteContent> = {
       ],
     },
     projects: {
-      label: "Projetos",
-      heading: "Sistemas em produção",
+      label: "Projetos · sistemas em produção",
+      heading: ["No", "código"],
       intro: "Projetos reais entregues na Souv para clientes de saúde, indústria e varejo. Os nomes ficam de fora por confidencialidade.",
       roleLabel: "meu papel",
       items: [
@@ -210,8 +233,8 @@ export const site: Record<Lang, SiteContent> = {
       ],
     },
     beyond: {
-      label: "Além do código",
-      heading: "Como eu ajudo o time a crescer",
+      label: "Além do código · como ajudo o time a crescer",
+      heading: ["Fora do", "código"],
       intro: "Boa parte do meu trabalho não está no código que eu escrevo, e sim em como o time contrata, entrega e aprende.",
       items: [
         {
@@ -243,7 +266,7 @@ export const site: Record<Lang, SiteContent> = {
     },
     pipeline: {
       label: "Pipeline",
-      heading: "Como eu entrego",
+      heading: ["Como eu", "entrego"],
       title: "Pipeline de entrega com agentes de IA",
       body: "Um comando transforma a descrição de uma feature em código revisado e testado, passando por 7 agentes especializados com gates entre cada estágio. Em uso diário pelo time.",
       points: [
@@ -280,7 +303,7 @@ export const site: Record<Lang, SiteContent> = {
     },
     experience: {
       label: "Experiência",
-      heading: "Onde construí isso",
+      heading: ["Onde construí", "isso"],
       current: "atual",
       items: [
         {
@@ -323,7 +346,7 @@ export const site: Record<Lang, SiteContent> = {
     },
     skills: {
       label: "Stack",
-      heading: "Com o que trabalho",
+      heading: ["Com o que", "trabalho"],
       groups: [
         { name: "Produto", items: ["TypeScript", "NestJS", "Express", "Node.js", "Next.js", "React", "React Native", "Tailwind"] },
         { name: "Dados", items: ["Python", "pandas", "PM4Py", "Algoritmos genéticos", "PostgreSQL", "Prisma", "SQL Server", "Oracle", "Firebase"] },
@@ -334,8 +357,8 @@ export const site: Record<Lang, SiteContent> = {
     },
     contact: {
       label: "Contato",
-      heading: "Aberto a novas oportunidades",
-      sub: "Para vagas e conversas técnicas, o caminho mais rápido é e-mail ou LinkedIn.",
+      heading: ["Sempre entregando", "de ponta a ponta."],
+      sub: "Aberto a novas oportunidades. Para vagas e conversas técnicas, o caminho mais rápido é e-mail ou LinkedIn.",
       whatsapp: "WhatsApp",
       email: "Enviar e-mail",
       github: "GitHub",
@@ -354,6 +377,7 @@ export const site: Record<Lang, SiteContent> = {
       ctaTalk: "Get in touch",
       ctaProjects: "See projects",
       photoAlt: "Photo of Antônio Cavalcante",
+      photoCaption: "Recife, 2026",
       metrics: [
         { value: 75, prefix: "−", suffix: "%", caption: "fix time with my AI delivery pipeline" },
         { value: 70, prefix: "−", suffix: "%", caption: "material losses with a unified system" },
@@ -361,9 +385,20 @@ export const site: Record<Lang, SiteContent> = {
         { value: 15, prefix: "+", suffix: "%", caption: "customer satisfaction (CSAT) via automation" },
       ],
     },
+    manifesto: {
+      label: "What I stand for",
+      parts: [
+        { text: "Code that" },
+        { text: "survives", em: true },
+        { text: "real users, teams that" },
+        { text: "hire", em: true },
+        { text: "better and delivery you can" },
+        { text: "measure.", em: true },
+      ],
+    },
     about: {
       label: "About",
-      heading: "Who I am",
+      heading: ["Who", "I am"],
       body: [
         "I'm a mid-level software engineer at Souv and the technical owner of end-to-end modules, from requirements to production deploy.",
         "I work on the product (NestJS, Next.js, React Native), on data (Python ETL, optimization and process mining for manufacturing) and on how the team ships: I built an AI agent pipeline, used every day, that cut ~75% of the time spent on fixes.",
@@ -376,8 +411,8 @@ export const site: Record<Lang, SiteContent> = {
       ],
     },
     projects: {
-      label: "Projects",
-      heading: "Systems in production",
+      label: "Projects · systems in production",
+      heading: ["On", "the code"],
       intro: "Real projects shipped at Souv for healthcare, manufacturing and retail clients. Names are left out for confidentiality.",
       roleLabel: "my role",
       items: [
@@ -454,8 +489,8 @@ export const site: Record<Lang, SiteContent> = {
       ],
     },
     beyond: {
-      label: "Beyond code",
-      heading: "How I help the team grow",
+      label: "Beyond code · how I help the team grow",
+      heading: ["Off", "the code"],
       intro: "A good part of my work isn't the code I write, but how the team hires, ships and learns.",
       items: [
         {
@@ -487,7 +522,7 @@ export const site: Record<Lang, SiteContent> = {
     },
     pipeline: {
       label: "Pipeline",
-      heading: "How I ship",
+      heading: ["How I", "ship"],
       title: "AI agent delivery pipeline",
       body: "One command turns a feature description into reviewed, tested code through 7 specialized agents, with gates between every stage. Used daily by the team.",
       points: [
@@ -524,7 +559,7 @@ export const site: Record<Lang, SiteContent> = {
     },
     experience: {
       label: "Experience",
-      heading: "Where I built it",
+      heading: ["Where I", "built it"],
       current: "now",
       items: [
         {
@@ -567,7 +602,7 @@ export const site: Record<Lang, SiteContent> = {
     },
     skills: {
       label: "Stack",
-      heading: "What I work with",
+      heading: ["What I", "work with"],
       groups: [
         { name: "Product", items: ["TypeScript", "NestJS", "Express", "Node.js", "Next.js", "React", "React Native", "Tailwind"] },
         { name: "Data", items: ["Python", "pandas", "PM4Py", "Genetic algorithms", "PostgreSQL", "Prisma", "SQL Server", "Oracle", "Firebase"] },
@@ -578,8 +613,8 @@ export const site: Record<Lang, SiteContent> = {
     },
     contact: {
       label: "Contact",
-      heading: "Open to new opportunities",
-      sub: "For roles and technical conversations, email or LinkedIn is the fastest way to reach me.",
+      heading: ["Always shipping", "end to end."],
+      sub: "Open to new opportunities. For roles and technical conversations, email or LinkedIn is the fastest way to reach me.",
       whatsapp: "WhatsApp",
       email: "Send an email",
       github: "GitHub",

@@ -4,47 +4,42 @@
    Required so dark: utilities work via .dark on <html>: */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Warm neutrals + one accent (green). Values are provisional until a DESIGN.md exists. */
 :root {
-  --background: #f8fafc;                 /* slate-50 */
-  --foreground: #0f172a;                 /* slate-900 */
-  --muted: #475569;                      /* slate-600 */
-  --primary: #512BD4;                    /* roxo .NET */
-  --cta: #047857;                        /* verde esmeralda — AA com texto branco */
-  --secondary: #f89820;                  /* laranja Java — WARNING: ~2:1 on light bg; decorative only in light theme, needs dark variant if used as text */
-  --glass-bg: rgba(255, 255, 255, 0.55);
-  --glass-border: rgba(15, 23, 42, 0.08);
-  --glass-highlight: rgba(255, 255, 255, 0.9);
-  --secondary-ink: #b45309;             /* laranja Java escurecido p/ texto no light — AA sobre #f8fafc */
-  --cta-ink: #047857;                   /* verde p/ texto — AA sobre #f8fafc */
-  --primary-ink: #512BD4;               /* roxo p/ texto — AA sobre #f8fafc */
+  --background: #f4f3ee;                 /* off-white quente */
+  --surface: #eae8e1;                    /* blocos de tela cheia */
+  --foreground: #141613;
+  --muted: #55574f;                      /* ~7:1 sobre o fundo */
+  --line: rgba(20, 22, 19, 0.12);
+  --cta: #047857;                        /* verde — AA com texto branco */
+  --cta-ink: #047857;                    /* verde p/ texto — AA sobre o fundo claro */
+  --cta-contrast: #ffffff;               /* texto sobre botão verde */
 }
 
 .dark {
-  --background: #0a0e14;                 /* quase-preto azulado */
-  --foreground: #e2e8f0;                 /* slate-200 */
-  --muted: #94a3b8;                      /* slate-400 */
-  /* accent colors are identical in both themes */
-  --secondary-ink: #f89820;             /* laranja Java — ~9:1 sobre #0a0e14 */
-  --cta-ink: #34d399;                   /* verde claro p/ texto — AA sobre #0a0e14 */
-  --primary-ink: #a78bfa;               /* roxo claro p/ texto — o #512BD4 não passa AA no dark */
-  --glass-bg: rgba(255, 255, 255, 0.04);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-highlight: rgba(255, 255, 255, 0.25);
+  --background: #121411;                 /* quase-preto quente */
+  --surface: #191b17;
+  --foreground: #ebe9e2;
+  --muted: #9c9d94;                      /* ~7:1 sobre o fundo */
+  --line: rgba(235, 233, 226, 0.12);
+  --cta: #3ddc84;
+  --cta-ink: #3ddc84;                    /* ~10:1 sobre o fundo */
+  --cta-contrast: #0d1a12;               /* texto escuro sobre o verde claro */
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
-  --color-primary: var(--primary);
+  --color-line: var(--line);
   --color-cta: var(--cta);
-  --color-secondary: var(--secondary);
-  --color-secondary-ink: var(--secondary-ink);
   --color-cta-ink: var(--cta-ink);
-  --color-primary-ink: var(--primary-ink);
+  --color-cta-contrast: var(--cta-contrast);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-jetbrains-mono);
   --font-display: var(--font-instrument-serif);
+  --font-heavy: var(--font-archivo);
 }
 
 html {
@@ -60,7 +55,7 @@ body {
 
 ::selection {
   background: var(--cta);
-  color: #fff;
+  color: var(--cta-contrast);
 }
 
 /* Grain overlay — pointer-events: none so it never blocks clicks */
@@ -70,33 +65,38 @@ body::after {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.04;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23grain)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 180px 180px;
 }
 
-/* Liquid glass surface — in @layer components so Tailwind utilities
-   (@layer utilities, higher precedence) can override it, e.g. the header's
-   border-0 border-b. Unlayered CSS would beat every utility in v4. */
 @layer components {
-  .glass {
-    background: var(--glass-bg);
-    -webkit-backdrop-filter: blur(16px) saturate(1.5);
-    backdrop-filter: blur(16px) saturate(1.5);
-    border: 1px solid var(--glass-border);
-    position: relative;
-    transition: background-color 300ms ease, border-color 300ms ease;
+  /* Heavy condensed uppercase — the display voice */
+  .type-heavy {
+    font-family: var(--font-archivo), sans-serif;
+    font-weight: 800;
+    font-stretch: 68%;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 0.88;
   }
 
-  /* Specular highlight line at the top */
-  .glass::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--glass-highlight), transparent);
-    pointer-events: none;
+  /* Serif italic accent for the key words */
+  .type-accent {
+    font-family: var(--font-instrument-serif), serif;
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: -0.02em;
+  }
+
+  .eyebrow {
+    font-family: var(--font-jetbrains-mono), monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted);
   }
 }
 
@@ -104,8 +104,7 @@ body::after {
   html {
     scroll-behavior: auto;
   }
-  body,
-  .glass {
+  body {
     transition: none;
   }
 }

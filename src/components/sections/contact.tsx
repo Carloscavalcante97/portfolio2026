@@ -46,22 +46,20 @@ export function ContactSection(): React.JSX.Element {
   const { t } = useLanguage();
 
   return (
-    <section id="contato" className="scroll-mt-14 py-16 md:py-24">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="contato" className="scroll-mt-14 py-24 md:py-36">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col gap-6 mb-12">
           <Reveal>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted">{t.contact.label}</span>
+            <span className="eyebrow">{t.contact.label}</span>
           </Reveal>
           <Reveal delay={0.08}>
-            <h2
-              className="font-display text-foreground leading-[1.02]"
-              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
-            >
-              {t.contact.heading}
+            <h2 className="text-foreground leading-[0.9]" style={{ fontSize: "clamp(3.5rem, 11vw, 10rem)" }}>
+              <span className="type-heavy block">{t.contact.heading[0]}</span>
+              <span className="type-accent block text-cta-ink">{t.contact.heading[1]}</span>
             </h2>
           </Reveal>
           <Reveal delay={0.16}>
-            <p className="text-muted text-lg">{t.contact.sub}</p>
+            <p className="text-muted text-lg max-w-2xl">{t.contact.sub}</p>
           </Reveal>
         </div>
 
@@ -87,7 +85,7 @@ export function ContactSection(): React.JSX.Element {
           </div>
         </Reveal>
 
-        <footer className="mt-24 border-t border-[var(--glass-border)] py-8 font-mono text-xs text-muted flex flex-wrap gap-2 justify-between">
+        <footer className="mt-24 border-t border-line py-8 font-mono text-xs text-muted flex flex-wrap gap-2 justify-between">
           <span>Antônio Cavalcante · {new Date().getFullYear()}</span>
           <span>{t.footer.madeWith}</span>
         </footer>

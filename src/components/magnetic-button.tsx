@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
 
+// Solid rectangular buttons with a subtle magnetic pull on pointer devices
 export function MagneticButton({
   href,
   children,
@@ -29,10 +30,8 @@ export function MagneticButton({
   function handlePointerMove(e: React.PointerEvent<HTMLAnchorElement>) {
     if (reduced || !ref.current) return;
     const rect = ref.current.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    rawX.set(clamp(e.clientX - cx, -8, 8));
-    rawY.set(clamp(e.clientY - cy, -8, 8));
+    rawX.set(clamp(e.clientX - (rect.left + rect.width / 2), -6, 6));
+    rawY.set(clamp(e.clientY - (rect.top + rect.height / 2), -6, 6));
   }
 
   function handlePointerLeave() {
@@ -40,19 +39,17 @@ export function MagneticButton({
     rawY.set(0);
   }
 
-  const baseClass = `rounded-full px-6 py-3 font-mono text-sm inline-flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-cta-ink focus-visible:outline-offset-2 ${
+  const baseClass = `rounded-[3px] px-6 py-3.5 type-heavy text-[15px] tracking-wide inline-flex items-center gap-2 transition-colors focus-visible:outline-2 focus-visible:outline-cta-ink focus-visible:outline-offset-2 ${
     variant === "primary"
-      ? "bg-cta text-white shadow-[0_4px_14px_rgba(4,120,87,0.3)]"
-      : "glass text-foreground border border-[var(--glass-border)] hover:border-cta-ink transition-colors"
+      ? "bg-cta text-cta-contrast hover:brightness-110"
+      : "text-foreground border border-line hover:border-cta-ink hover:text-cta-ink"
   } ${className ?? ""}`;
+
+  const linkProps = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
 
   if (reduced) {
     return (
-      <a
-        href={href}
-        className={baseClass}
-        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      >
+      <a href={href} className={baseClass} {...linkProps}>
         {children}
       </a>
     );
@@ -66,7 +63,7 @@ export function MagneticButton({
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
       className={baseClass}
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      {...linkProps}
     >
       {children}
     </motion.a>

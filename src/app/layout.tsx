@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { Archivo, Geist, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
-import { BackgroundCanvas } from "@/components/background-canvas";
 import { Header } from "@/components/header";
-import { SectionNav } from "@/components/section-nav";
+import { ScrollProgress } from "@/components/scroll-progress";
 import { LanguageProvider } from "@/components/language-provider";
 import "./globals.css";
 
@@ -17,6 +16,12 @@ const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
   style: ["normal", "italic"],
+});
+// Variable font with the width axis, used condensed and heavy for display type
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin"],
+  axes: ["wdth"],
 });
 
 export const metadata: Metadata = {
@@ -42,15 +47,14 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable} ${archivo.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <LanguageProvider>
-            <BackgroundCanvas />
+            <ScrollProgress />
             <Header />
             {children}
-            <SectionNav />
           </LanguageProvider>
         </ThemeProvider>
       </body>
