@@ -254,7 +254,7 @@ export const site: Record<Lang, SiteContent> = {
       ],
       metric: { value: 75, prefix: "−", suffix: "%", caption: "no tempo de correção" },
       linkLabel: "Ver no GitHub",
-      terminal: { command: '/pipeline "rate limiting em POST /login"', done: "branch pronta para revisão humana" },
+      terminal: { command: '/pipeline "rate limiting em POST /login"', done: "PR aberto para revisão humana" },
       ossHeading: "Outros projetos abertos",
       oss: [
         {
@@ -498,7 +498,7 @@ export const site: Record<Lang, SiteContent> = {
       ],
       metric: { value: 75, prefix: "−", suffix: "%", caption: "in fix time" },
       linkLabel: "View on GitHub",
-      terminal: { command: '/pipeline "rate limiting on POST /login"', done: "branch ready for human review" },
+      terminal: { command: '/pipeline "rate limiting on POST /login"', done: "PR opened for human review" },
       ossHeading: "More open-source work",
       oss: [
         {
