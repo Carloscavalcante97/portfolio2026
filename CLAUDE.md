@@ -4,7 +4,7 @@ Portfólio profissional voltado a recrutadores: em 10 segundos o visitante enten
 
 ## Posicionamento
 
-Engenheiro de software full-stack (Pleno na Souv desde 08/2026): NestJS, Next.js e React Native no produto, Python para dados (ETL, otimização, process mining) e agentes de IA em produção. Diferencial: pipeline de entrega spec-driven com 7 agentes (planner, coder, simplifier, tester, e2e, reviewer, committer) e aprovação humana antes de commits, usado diariamente pelo time, que reduziu o tempo de correção em ~75%. Nome com acento: **Antônio**.
+Engenheiro de software full-stack (Pleno na Souv desde 08/2026): NestJS, Next.js e React Native no produto, Python para dados (ETL, otimização, process mining) e agentes de IA em produção. Diferencial: pipeline de entrega spec-driven com 7 agentes (planner, coder, simplifier, tester, e2e, reviewer, committer) e aprovação humana antes de commits, usado diariamente pelo time. Teste comparativo real (agente direto × /pipeline-v2): defeitos alto/médio 1→0, retrabalho 27 linhas→0, tokens +1%, tempo até o aceite +88% (9,5→17,9 min). **Não usar mais o "−75%"**: mostrar os números medidos, inclusive o tempo maior. Nome com acento: **Antônio**.
 
 ## Stack do site
 
@@ -33,7 +33,7 @@ Referências: landonorris.com (tipografia mista, uma cor de destaque, títulos e
 
 ### Layout
 - Grid editorial assimétrico, `max-w-7xl`. Linhas com divisória fina (`border-line`), não cards.
-- Pipeline é um bloco de tela cheia (`bg-surface`) com o número gigante.
+- Pipeline é um bloco de tela cheia (`bg-surface`) com o "0" gigante e a tabela do teste comparativo.
 - Botões retangulares (raio 3px) com texto em grotesca pesada; magnetismo discreto.
 - Foto pequena, sem moldura, com legenda em mono.
 - Barra de progresso de leitura no topo (no lugar de pontos laterais).
@@ -49,12 +49,12 @@ Referências: landonorris.com (tipografia mista, uma cor de destaque, títulos e
 
 ## Seções (uma página, scroll contínuo)
 
-1. **Hero** — status, nome gigante (ANTÔNIO em grotesca + *Cavalcante* em serifa verde), título, foto pequena com legenda, CTA "Entrar em contato" (e-mail) e "Ver projetos", 4 métricas gigantes (−75%, −70%, +35%, +15%).
+1. **Hero** — status, nome gigante (ANTÔNIO em grotesca + *Cavalcante* em serifa verde), título, foto pequena com legenda, CTA "Entrar em contato" (e-mail) e "Ver projetos", 4 métricas gigantes (0 retrabalho, −70%, +35%, +15%).
 2. **Manifesto** — uma frase em caixa alta com 3 palavras-chave em serifa verde, acendendo com o scroll.
 3. **Sobre** — 2 parágrafos + ficha (cargo, base, formação com previsão 2027, idiomas).
 4. **Projetos** — sistemas reais da Souv em produção, **sem citar clientes nem detalhes que os identifiquem** (nada de nome de ERP, gateway de pagamento, modelo de negócio específico ou achados de segurança). Cada card diz o papel do Antônio; trabalho de time é dito como tal.
 5. **Além do código** — contratação, processo de engenharia, pílulas técnicas, propostas para clientes, mentoria. Linhas editoriais, não cards. Números só se forem reais.
-6. **Pipeline** — painel com o terminal do `/pipeline` (7 agentes) + −75%, e lista de repos abertos (stack-cli, portfolio2026, Gerenciamento-De-Produtos).
+6. **Pipeline** — painel com o terminal do `/pipeline` (7 agentes), "0" de retrabalho e tabela do teste comparativo, e lista de repos abertos (stack-cli, portfolio2026, Gerenciamento-De-Produtos).
 7. **Experiência** — Souv (Pleno e Júnior), Denzel Eventos, Pontes Hotéis.
 8. **Stack** — grupos Produto / Dados / IA e automação / Plataforma + linha "Também".
 9. **Contato** — frase de fechamento gigante ("Sempre entregando / de ponta a ponta."), depois: e-mail (principal), LinkedIn (`/in/antonio-dev-/`), GitHub e WhatsApp (`https://wa.me/5511947832280`) por último. Sem formulário.
@@ -64,7 +64,7 @@ Sem botão flutuante. Conteúdo PT/EN fica todo em `src/content/site.ts`.
 ## Conteúdo
 
 - Idiomas: PT-BR e EN (toggle no header; PT default). Textos-fonte do about já existem nas duas línguas.
-- Tom: direto, orientado a resultado ("reduziu X em 75%"), sem jargão vazio.
+- Tom: direto, orientado a resultado, só com números medidos, sem jargão vazio.
 
 ## Regras de código
 

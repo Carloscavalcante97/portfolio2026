@@ -85,6 +85,12 @@ export interface SiteContent {
     body: string;
     points: string[];
     metric: Metric;
+    benchmark: {
+      title: string;
+      note: string;
+      cols: [string, string, string, string];
+      rows: [string, string, string, string][];
+    };
     linkLabel: string;
     terminal: { command: string; done: string };
     ossHeading: string;
@@ -123,7 +129,7 @@ export const site: Record<Lang, SiteContent> = {
       photoAlt: "Foto de Antônio Cavalcante",
       photoCaption: "Recife, 2026",
       metrics: [
-        { value: 75, prefix: "−", suffix: "%", caption: "tempo de correção com meu pipeline de IA" },
+        { value: 0, prefix: "", suffix: "", caption: "retrabalho após a entrega com meu pipeline de IA, no teste comparativo" },
         { value: 70, prefix: "−", suffix: "%", caption: "perdas de material com um sistema unificado" },
         { value: 35, prefix: "+", suffix: "%", caption: "eficiência operacional no mesmo sistema" },
         { value: 15, prefix: "+", suffix: "%", caption: "satisfação do cliente (CSAT) com automação" },
@@ -145,7 +151,7 @@ export const site: Record<Lang, SiteContent> = {
       heading: ["Quem", "sou"],
       body: [
         "Sou engenheiro de software pleno na Souv e responsável técnico por módulos de ponta a ponta, do levantamento de requisitos ao deploy.",
-        "Trabalho no produto (NestJS, Next.js, React Native), nos dados (ETL em Python, otimização e process mining para a indústria) e no jeito como o time entrega: criei um pipeline de agentes de IA, usado todo dia, que cortou ~75% do tempo gasto em correções.",
+        "Trabalho no produto (NestJS, Next.js, React Native), nos dados (ETL em Python, otimização e process mining para a indústria) e no jeito como o time entrega: criei um pipeline de agentes de IA, usado todo dia, que no teste comparativo entregou sem defeitos relevantes e sem retrabalho.",
       ],
       facts: [
         { k: "cargo", v: "Software Engineer (Pleno) · Souv" },
@@ -260,7 +266,7 @@ export const site: Record<Lang, SiteContent> = {
         {
           area: "Processo de engenharia",
           title: "Spec-driven development e pipeline de agentes",
-          body: "Levei para o time o desenvolvimento guiado por especificação e um pipeline de agentes de IA com aprovação humana, hoje usado no dia a dia e com ~75% menos tempo gasto em correções.",
+          body: "Levei para o time o desenvolvimento guiado por especificação e um pipeline de agentes de IA com aprovação humana, hoje usado no dia a dia; no teste comparativo, entregou sem defeitos relevantes e sem retrabalho.",
         },
         {
           area: "Pílulas técnicas",
@@ -290,7 +296,18 @@ export const site: Record<Lang, SiteContent> = {
         "Testes E2E contra o sistema rodando: Playwright na web, supertest na API e Maestro no mobile.",
         "Nada é commitado sem aprovação humana explícita.",
       ],
-      metric: { value: 75, prefix: "−", suffix: "%", caption: "no tempo de correção" },
+      metric: { value: 0, prefix: "", suffix: "", caption: "defeitos e retrabalho após a entrega" },
+      benchmark: {
+        title: "Teste comparativo: agente direto × /pipeline-v2",
+        note: "Mesma tarefa nos dois fluxos. O pipeline leva mais tempo, mas entrega pronto para aceite.",
+        cols: ["", "agente direto", "/pipeline-v2", "diferença"],
+        rows: [
+          ["Defeitos alto/médio na entrega", "1", "0", "−100%"],
+          ["Retrabalho depois da entrega", "27 linhas, 1 rodada", "0", "−100%"],
+          ["Tokens até o aceite", "201k", "204k", "+1%"],
+          ["Tempo até o aceite", "9,5 min", "17,9 min", "+88%"],
+        ],
+      },
       linkLabel: "Ver no GitHub",
       terminal: { command: '/pipeline "rate limiting em POST /login"', done: "PR aberto para revisão humana" },
       ossHeading: "Outros projetos abertos",
@@ -394,7 +411,7 @@ export const site: Record<Lang, SiteContent> = {
       photoAlt: "Photo of Antônio Cavalcante",
       photoCaption: "Recife, 2026",
       metrics: [
-        { value: 75, prefix: "−", suffix: "%", caption: "fix time with my AI delivery pipeline" },
+        { value: 0, prefix: "", suffix: "", caption: "rework after delivery with my AI pipeline, in a head-to-head test" },
         { value: 70, prefix: "−", suffix: "%", caption: "material losses with a unified system" },
         { value: 35, prefix: "+", suffix: "%", caption: "operational efficiency, same system" },
         { value: 15, prefix: "+", suffix: "%", caption: "customer satisfaction (CSAT) via automation" },
@@ -416,7 +433,7 @@ export const site: Record<Lang, SiteContent> = {
       heading: ["Who", "I am"],
       body: [
         "I'm a mid-level software engineer at Souv and the technical owner of end-to-end modules, from requirements to production deploy.",
-        "I work on the product (NestJS, Next.js, React Native), on data (Python ETL, optimization and process mining for manufacturing) and on how the team ships: I built an AI agent pipeline, used every day, that cut ~75% of the time spent on fixes.",
+        "I work on the product (NestJS, Next.js, React Native), on data (Python ETL, optimization and process mining for manufacturing) and on how the team ships: I built an AI agent pipeline, used every day, that delivered with no significant defects and no rework in a head-to-head test.",
       ],
       facts: [
         { k: "role", v: "Software Engineer (Mid-level) · Souv" },
@@ -531,7 +548,7 @@ export const site: Record<Lang, SiteContent> = {
         {
           area: "Engineering process",
           title: "Spec-driven development and an agent pipeline",
-          body: "I brought spec-driven development and an AI agent pipeline with human approval to the team. It's used daily and cut time spent on fixes by ~75%.",
+          body: "I brought spec-driven development and an AI agent pipeline with human approval to the team. It's used daily, and in a head-to-head test it delivered with no significant defects and no rework.",
         },
         {
           area: "Tech talks",
@@ -561,7 +578,18 @@ export const site: Record<Lang, SiteContent> = {
         "E2E tests against the running system: Playwright for web, supertest for APIs and Maestro for mobile.",
         "Nothing is committed without explicit human approval.",
       ],
-      metric: { value: 75, prefix: "−", suffix: "%", caption: "in fix time" },
+      metric: { value: 0, prefix: "", suffix: "", caption: "defects and rework after delivery" },
+      benchmark: {
+        title: "Head-to-head test: direct agent × /pipeline-v2",
+        note: "Same task through both flows. The pipeline takes longer, but delivers ready to accept.",
+        cols: ["", "direct agent", "/pipeline-v2", "difference"],
+        rows: [
+          ["High/medium defects at delivery", "1", "0", "−100%"],
+          ["Rework after delivery", "27 lines, 1 round", "0", "−100%"],
+          ["Tokens to acceptance", "201k", "204k", "+1%"],
+          ["Time to acceptance", "9.5 min", "17.9 min", "+88%"],
+        ],
+      },
       linkLabel: "View on GitHub",
       terminal: { command: '/pipeline "rate limiting on POST /login"', done: "PR opened for human review" },
       ossHeading: "More open-source work",

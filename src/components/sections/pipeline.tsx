@@ -41,6 +41,33 @@ export function PipelineSection(): React.JSX.Element {
                 </h3>
                 <p className="text-muted text-lg leading-relaxed">{p.body}</p>
               </div>
+              <figure className="flex flex-col gap-3">
+                <figcaption className="eyebrow">{p.benchmark.title}</figcaption>
+                <div className="overflow-x-auto">
+                  <table className="w-full font-mono text-[13px] border-collapse">
+                    <thead>
+                      <tr className="border-b border-line text-muted">
+                        {p.benchmark.cols.map((c, i) => (
+                          <th key={i} scope="col" className={`py-2 font-normal ${i === 0 ? "text-left pr-4" : "text-right px-3"} ${i === 2 ? "text-cta-ink" : ""}`}>
+                            {c}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {p.benchmark.rows.map((row) => (
+                        <tr key={row[0]} className="border-b border-line">
+                          <th scope="row" className="py-2.5 pr-4 text-left font-normal text-foreground/85">{row[0]}</th>
+                          <td className="py-2.5 px-3 text-right text-muted whitespace-nowrap">{row[1]}</td>
+                          <td className="py-2.5 px-3 text-right text-foreground whitespace-nowrap">{row[2]}</td>
+                          <td className="py-2.5 pl-3 text-right text-foreground whitespace-nowrap">{row[3]}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <p className="text-sm text-muted">{p.benchmark.note}</p>
+              </figure>
               <ul className="flex flex-col gap-2">
                 {p.points.map((point) => (
                   <li key={point} className="flex gap-3 leading-relaxed text-foreground/85">
