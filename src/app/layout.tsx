@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, Geist, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { Barlow_Condensed, Geist, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Header } from "@/components/header";
 import { ScrollProgress } from "@/components/scroll-progress";
@@ -17,11 +17,11 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
   style: ["normal", "italic"],
 });
-// Variable font with the width axis, used condensed and heavy for display type
-const archivo = Archivo({
-  variable: "--font-archivo",
+// Natively condensed heavy grotesque for display type
+const heavy = Barlow_Condensed({
+  variable: "--font-heavy",
   subsets: ["latin"],
-  axes: ["wdth"],
+  weight: ["700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -47,7 +47,7 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable} ${archivo.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable} ${heavy.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>

@@ -39,7 +39,6 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-jetbrains-mono);
   --font-display: var(--font-instrument-serif);
-  --font-heavy: var(--font-archivo);
 }
 
 html {
@@ -74,12 +73,10 @@ body::after {
 @layer components {
   /* Heavy condensed uppercase — the display voice */
   .type-heavy {
-    font-family: var(--font-archivo), sans-serif;
+    font-family: var(--font-heavy), sans-serif;
     font-weight: 800;
-    font-stretch: 68%;
-    font-variation-settings: "wdth" 68;
     text-transform: uppercase;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.005em;
     line-height: 0.88;
   }
 

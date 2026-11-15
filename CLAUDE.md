@@ -26,7 +26,7 @@ Referências: landonorris.com (tipografia mista, uma cor de destaque, títulos e
 - **Fundo liso + grão sutil.** Sem nebulosa, sem Three.js, sem vidro (glassmorphism).
 
 ### Tipografia (o visual é a tipografia)
-- **Display:** Archivo variável, peso 800, largura ~68%, caixa alta (`.type-heavy`). Títulos enormes com `clamp()` (hero até ~12rem).
+- **Display:** Barlow Condensed 800, caixa alta (`.type-heavy`). Títulos enormes com `clamp()` (hero até ~12rem).
 - **Destaque:** Instrument Serif itálica em verde (`.type-accent`) só nas palavras-chave.
 - **Títulos de seção em duas linhas:** 1ª em grotesca pesada, 2ª em serifa itálica verde (`SectionHeading` recebe `[string, string]`). Projetos = "No / código", Além do código = "Fora do / código".
 - **Corpo:** Geist. **Técnico/legendas:** JetBrains Mono (`.eyebrow`).
