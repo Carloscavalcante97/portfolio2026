@@ -157,9 +157,24 @@ export const site: Record<Lang, SiteContent> = {
     projects: {
       label: "Projetos · sistemas em produção",
       heading: ["No", "código"],
-      intro: "Projetos reais entregues na Souv para clientes de saúde, indústria e varejo. Os nomes ficam de fora por confidencialidade.",
+      intro: "Projetos reais entregues na Souv, de produtos internos a sistemas para clientes de saúde, indústria e varejo. Os nomes ficam de fora por confidencialidade.",
       roleLabel: "meu papel",
       items: [
+        {
+          domain: "Recrutamento · Produto interno",
+          title: "Plataforma de recrutamento de ponta a ponta",
+          summary: "Do anúncio da vaga à proposta aceita: divulgação, inscrição, desafios, entrevistas e negociação em um só fluxo, para vagas de tecnologia, design e gestão.",
+          points: [
+            "Vagas publicadas direto no LinkedIn e em outros portais via feed XML, com página pública de vagas.",
+            "Cadastro de candidatos com currículo, inscrição em processos e banco de talentos; candidatos podem ser movidos entre processos.",
+            "Etapas configuráveis por processo: desafio assíncrono ou live code, entrevista com live coding e entrevistas finais.",
+            "Live coding com chamada própria e bloqueio de uso de segunda tela.",
+            "Fase de proposta na própria plataforma: o candidato aceita, recusa ou negocia.",
+            "Desafios por perfil: arquivo do Figma exposto para designers e cenários específicos para gestores.",
+          ],
+          role: "full-stack",
+          tags: ["Feed XML", "Live coding", "Chamada de vídeo", "Banco de talentos"],
+        },
         {
           domain: "Saúde · Gestão estratégica",
           title: "Plataforma de OKRs e indicadores para uma rede hospitalar",
@@ -240,7 +255,7 @@ export const site: Record<Lang, SiteContent> = {
         {
           area: "Contratação",
           title: "Processo seletivo de desenvolvedores",
-          body: "Desenhei e conduzo o processo de contratação de devs: desafio técnico com bugs plantados, gabarito automatizado, rubrica que avalia inclusive o uso de IA e entrevistas focadas em raciocínio lógico.",
+          body: "Desenhei e conduzo o processo de contratação de devs, rodando na plataforma de recrutamento que desenvolvi: desafio técnico com bugs plantados, gabarito automatizado, rubrica que avalia inclusive o uso de IA e entrevistas focadas em raciocínio lógico.",
         },
         {
           area: "Processo de engenharia",
@@ -413,9 +428,24 @@ export const site: Record<Lang, SiteContent> = {
     projects: {
       label: "Projects · systems in production",
       heading: ["On", "the code"],
-      intro: "Real projects shipped at Souv for healthcare, manufacturing and retail clients. Names are left out for confidentiality.",
+      intro: "Real projects shipped at Souv, from internal products to systems for healthcare, manufacturing and retail clients. Names are left out for confidentiality.",
       roleLabel: "my role",
       items: [
+        {
+          domain: "Hiring · Internal product",
+          title: "End-to-end recruiting platform",
+          summary: "From job posting to accepted offer: publishing, applications, challenges, interviews and negotiation in a single flow, for engineering, design and management roles.",
+          points: [
+            "Jobs published straight to LinkedIn and other boards through an XML feed, plus a public job board.",
+            "Candidate sign-up with résumé, applications and a talent pool; candidates can be moved between processes.",
+            "Configurable stages per process: async challenge or live code, a live coding interview and final interviews.",
+            "Live coding with built-in video calls and second-screen blocking.",
+            "Offer stage inside the platform: the candidate accepts, declines or negotiates.",
+            "Role-specific challenges: a Figma file exposed to designers and tailored scenarios for managers.",
+          ],
+          role: "full-stack",
+          tags: ["XML feed", "Live coding", "Video calls", "Talent pool"],
+        },
         {
           domain: "Healthcare · Strategy",
           title: "OKR and KPI platform for a hospital network",
@@ -496,7 +526,7 @@ export const site: Record<Lang, SiteContent> = {
         {
           area: "Hiring",
           title: "Developer hiring process",
-          body: "I designed and run the developer hiring process: a technical challenge with planted bugs, an automated answer key, a rubric that also grades how candidates use AI, and interviews focused on logical reasoning.",
+          body: "I designed and run the developer hiring process, on the recruiting platform I built: a technical challenge with planted bugs, an automated answer key, a rubric that also grades how candidates use AI, and interviews focused on logical reasoning.",
         },
         {
           area: "Engineering process",
