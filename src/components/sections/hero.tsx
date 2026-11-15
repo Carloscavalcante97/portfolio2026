@@ -13,7 +13,7 @@ export function HeroSection(): React.JSX.Element {
     <section id="hero" className="relative scroll-mt-14 pt-28 md:pt-32 pb-16">
       <div className="mx-auto w-full max-w-7xl px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 items-end">
-          <div className="md:col-span-7 flex flex-col items-start gap-8">
+          <div className="md:col-span-8 flex flex-col items-start gap-8">
             <span className="eyebrow inline-flex items-center gap-2">
               <span className="inline-flex size-1.5 rounded-full bg-cta-ink" />
               {t.hero.status}
@@ -40,14 +40,14 @@ export function HeroSection(): React.JSX.Element {
           </div>
 
           {/* Editorial photo: small, captioned, no frame */}
-          <figure className="md:col-span-5 relative w-full max-w-[420px] md:max-w-none md:ml-auto">
+          <figure className="md:col-span-4 relative w-full max-w-[280px] md:max-w-[320px] md:ml-auto">
             <Image
               src="/antonio.jpg"
               alt={t.hero.photoAlt}
               width={800}
               height={1000}
               priority
-              sizes="(min-width: 768px) 40vw, 90vw"
+              sizes="(min-width: 768px) 320px, 280px"
               className="aspect-[4/5] w-full object-cover rounded-[3px]"
             />
             <figcaption className="eyebrow text-[11px] mt-3 flex justify-between gap-4">
