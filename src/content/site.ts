@@ -288,8 +288,8 @@ export const site: Record<Lang, SiteContent> = {
         },
         {
           name: "portfolio2026",
-          pitch: "Este site: Next.js, shader Three.js e i18n sem dependências, construído com o meu próprio pipeline.",
-          tags: ["Next.js", "Three.js", "Framer Motion"],
+          pitch: "Este site: Next.js, tipografia editorial e i18n sem dependências, construído com o meu próprio pipeline.",
+          tags: ["Next.js", "Tailwind", "Framer Motion"],
           url: OSS_URLS.portfolio,
         },
         {
@@ -365,7 +365,7 @@ export const site: Record<Lang, SiteContent> = {
       linkedin: "LinkedIn",
     },
     footer: {
-      madeWith: "feito com Next.js + Three.js, entregue pelo meu pipeline de agentes",
+      madeWith: "feito com Next.js, entregue pelo meu pipeline de agentes",
     },
   },
   en: {
@@ -544,8 +544,8 @@ export const site: Record<Lang, SiteContent> = {
         },
         {
           name: "portfolio2026",
-          pitch: "This site: Next.js, a Three.js shader and dependency-free i18n, built with my own pipeline.",
-          tags: ["Next.js", "Three.js", "Framer Motion"],
+          pitch: "This site: Next.js, editorial typography and dependency-free i18n, built with my own pipeline.",
+          tags: ["Next.js", "Tailwind", "Framer Motion"],
           url: OSS_URLS.portfolio,
         },
         {
@@ -621,7 +621,7 @@ export const site: Record<Lang, SiteContent> = {
       linkedin: "LinkedIn",
     },
     footer: {
-      madeWith: "built with Next.js + Three.js, shipped by my agent pipeline",
+      madeWith: "built with Next.js, shipped by my agent pipeline",
     },
   },
 };
