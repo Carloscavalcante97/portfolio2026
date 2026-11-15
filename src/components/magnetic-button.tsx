@@ -40,7 +40,7 @@ export function MagneticButton({
     rawY.set(0);
   }
 
-  const baseClass = `rounded-full px-6 py-3 font-mono text-sm inline-flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
+  const baseClass = `rounded-full px-6 py-3 font-mono text-sm inline-flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-cta-ink focus-visible:outline-offset-2 ${
     variant === "primary"
       ? "bg-cta text-white shadow-[0_4px_14px_rgba(4,120,87,0.3)]"
       : "glass text-foreground border border-[var(--glass-border)] hover:border-cta-ink transition-colors"

@@ -11,7 +11,7 @@ export function ExperienceSection(): React.JSX.Element {
   return (
     <section id="experiencia" className="scroll-mt-14 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeading index="04" label={e.label} heading={e.heading} />
+        <SectionHeading label={e.label} heading={e.heading} />
 
         <div className="flex flex-col border-t border-[var(--glass-border)]">
           {e.items.map((r, i) => (
@@ -34,7 +34,7 @@ export function ExperienceSection(): React.JSX.Element {
                   <ul className="flex flex-col gap-2">
                     {r.points.map((p) => (
                       <li key={p} className="text-muted leading-relaxed flex gap-3">
-                        <span aria-hidden="true" className="font-mono text-primary-ink pt-0.5">—</span>
+                        <span aria-hidden="true" className="font-mono text-muted/60 pt-0.5">—</span>
                         <span>{p}</span>
                       </li>
                     ))}

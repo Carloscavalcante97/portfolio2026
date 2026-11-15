@@ -10,7 +10,7 @@ export function AboutSection(): React.JSX.Element {
   return (
     <section id="about" className="scroll-mt-14 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeading index="01" label={t.about.label} heading={t.about.heading} />
+        <SectionHeading label={t.about.label} heading={t.about.heading} />
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
           <div className="md:col-span-7 flex flex-col gap-5">

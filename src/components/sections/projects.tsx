@@ -16,7 +16,7 @@ export function ProjectsSection(): React.JSX.Element {
   return (
     <section id="projetos" className="scroll-mt-14 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeading index="02" label={p.label} heading={p.heading} />
+        <SectionHeading label={p.label} heading={p.heading} />
         <Reveal delay={0.12}>
           <p className="-mt-6 md:-mt-10 mb-12 max-w-2xl text-muted text-lg">{p.intro}</p>
         </Reveal>
@@ -27,9 +27,7 @@ export function ProjectsSection(): React.JSX.Element {
             return (
               <Reveal key={item.title} delay={(i % 3) * 0.06} className={SPANS[i] ?? "md:col-span-6"}>
                 <TiltCard className={`h-full flex flex-col gap-5 ${featured ? "p-7 md:p-9" : "p-6 md:p-7"}`}>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
-                    <span className="text-cta-ink">{String(i + 1).padStart(2, "0")}</span> · {item.domain}
-                  </span>
+                  <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">{item.domain}</span>
 
                   <div className="flex flex-col gap-2">
                     <h3 className={`font-display text-foreground leading-tight ${featured ? "text-3xl md:text-4xl" : "text-2xl"}`}>
@@ -41,7 +39,7 @@ export function ProjectsSection(): React.JSX.Element {
                   <ul className="flex flex-col gap-2">
                     {item.points.map((point) => (
                       <li key={point} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
-                        <span aria-hidden="true" className="font-mono text-primary-ink">—</span>
+                        <span aria-hidden="true" className="font-mono text-muted/60">—</span>
                         <span>{point}</span>
                       </li>
                     ))}
@@ -54,7 +52,7 @@ export function ProjectsSection(): React.JSX.Element {
                           to={item.metric.value}
                           prefix={item.metric.prefix}
                           suffix={item.metric.suffix}
-                          className="font-display text-5xl leading-none text-primary-ink"
+                          className="font-display text-5xl leading-none text-foreground"
                         />
                         <span className="font-mono text-xs text-muted pb-1">{item.metric.caption}</span>
                       </div>
@@ -62,7 +60,7 @@ export function ProjectsSection(): React.JSX.Element {
                     <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--glass-border)] pt-4">
                       <div className="flex flex-wrap gap-x-3 gap-y-1">
                         {item.tags.map((tag) => (
-                          <span key={tag} className="font-mono text-xs text-secondary-ink">
+                          <span key={tag} className="font-mono text-xs text-muted">
                             {tag}
                           </span>
                         ))}

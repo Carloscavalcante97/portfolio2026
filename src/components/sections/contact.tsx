@@ -50,9 +50,7 @@ export function ContactSection(): React.JSX.Element {
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex flex-col gap-6 mb-12">
           <Reveal>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-              <span className="text-cta-ink">06</span> / {t.contact.label}
-            </span>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted">{t.contact.label}</span>
           </Reveal>
           <Reveal delay={0.08}>
             <h2
@@ -69,22 +67,22 @@ export function ContactSection(): React.JSX.Element {
 
         <Reveal delay={0.24}>
           <div className="flex flex-wrap gap-3">
-            <MagneticButton href={LINKS.whatsapp} external variant="primary">
-              <WhatsappIcon />
-              {t.contact.whatsapp}
-            </MagneticButton>
             {/* mailto does not use external/target blank */}
-            <MagneticButton href={LINKS.email} variant="ghost">
+            <MagneticButton href={LINKS.email} variant="primary">
               <MailIcon />
               {t.contact.email}
+            </MagneticButton>
+            <MagneticButton href={LINKS.linkedin} external variant="ghost">
+              <LinkedinIcon />
+              {t.contact.linkedin}
             </MagneticButton>
             <MagneticButton href={LINKS.github} external variant="ghost">
               <GithubIcon />
               {t.contact.github}
             </MagneticButton>
-            <MagneticButton href={LINKS.linkedin} external variant="ghost">
-              <LinkedinIcon />
-              {t.contact.linkedin}
+            <MagneticButton href={LINKS.whatsapp} external variant="ghost">
+              <WhatsappIcon />
+              {t.contact.whatsapp}
             </MagneticButton>
           </div>
         </Reveal>

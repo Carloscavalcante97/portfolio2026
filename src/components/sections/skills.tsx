@@ -11,16 +11,15 @@ export function SkillsSection(): React.JSX.Element {
   return (
     <section id="skills" className="scroll-mt-14 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeading index="05" label={t.skills.label} heading={t.skills.heading} />
+        <SectionHeading label={t.skills.label} heading={t.skills.heading} />
 
         {/* Editorial rows: group on the left, stack on the right */}
         <div className="flex flex-col border-t border-[var(--glass-border)]">
           {t.skills.groups.map((g, i) => (
             <Reveal key={g.name} delay={i * 0.08}>
               <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 py-6 border-b border-[var(--glass-border)]">
-                <div className="md:col-span-3 flex items-baseline gap-4">
-                  <span className="font-mono text-xs text-muted">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="font-mono text-sm uppercase tracking-[0.18em] text-secondary-ink">{g.name}</span>
+                <div className="md:col-span-3 flex items-baseline">
+                  <span className="font-mono text-sm uppercase tracking-[0.18em] text-muted">{g.name}</span>
                 </div>
                 <p className="md:col-span-9 font-display text-2xl md:text-3xl text-foreground leading-snug">
                   {g.items.map((item, j) => (

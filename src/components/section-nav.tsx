@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/components/language-provider";
 
-const IDS = ["hero", "about", "projetos", "pipeline", "experiencia", "skills", "contato"] as const;
+const IDS = ["hero", "about", "projetos", "alem", "pipeline", "experiencia", "skills", "contato"] as const;
 
 export function SectionNav(): React.JSX.Element {
   const { t } = useLanguage();
@@ -13,6 +13,7 @@ export function SectionNav(): React.JSX.Element {
     { id: "hero", label: t.hero.label },
     { id: "about", label: t.about.label },
     { id: "projetos", label: t.projects.label },
+    { id: "alem", label: t.beyond.label },
     { id: "pipeline", label: t.pipeline.label },
     { id: "experiencia", label: t.experience.label },
     { id: "skills", label: t.skills.label },
@@ -48,13 +49,13 @@ export function SectionNav(): React.JSX.Element {
             key={id}
             href={`#${id}`}
             aria-current={isActive ? "true" : undefined}
-            className="group flex items-center justify-end gap-2.5 py-1.5"
+            className="group flex items-center justify-end gap-2.5 py-1.5 focus-visible:outline-2 focus-visible:outline-cta-ink focus-visible:outline-offset-2 rounded"
           >
             <span
               className={`font-mono text-[11px] transition-opacity duration-200 ${
                 isActive
                   ? "opacity-100 text-foreground"
-                  : "opacity-0 group-hover:opacity-100 text-muted"
+                  : "opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 text-muted"
               }`}
             >
               {label}
@@ -62,7 +63,7 @@ export function SectionNav(): React.JSX.Element {
             <span
               className={`rounded-full transition-all duration-200 ${
                 isActive
-                  ? "size-2 bg-primary"
+                  ? "size-2 bg-cta-ink"
                   : "size-1.5 bg-muted/40 group-hover:bg-muted"
               }`}
             />

@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { useInView, useReducedMotion } from "framer-motion";
 
 // Each stage and the handoff it leaves — mirrors the real pipeline-Claude flow
 const STAGES = [
@@ -11,6 +11,7 @@ const STAGES = [
   ["tester", "passed"],
   ["e2e", "passed"],
   ["reviewer", "SHIP"],
+  ["committer", "PR"],
 ] as const;
 
 export function PipelineTerminal({
@@ -23,22 +24,23 @@ export function PipelineTerminal({
   const reduced = useReducedMotion();
   // step = number of finished stages; STAGES.length means the run is complete
   const [step, setStep] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.5 });
   const shown = reduced ? STAGES.length : step;
 
+  // Plays once when it first comes into view, then stays on the finished run
   useEffect(() => {
-    if (reduced) return;
-    // Finished: hold the result, then replay the run
-    const delay = step === 0 ? 1100 : step >= STAGES.length ? 5000 : 650;
-    const id = setTimeout(() => setStep((s) => (s >= STAGES.length ? 0 : s + 1)), delay);
+    if (reduced || !inView || step >= STAGES.length) return;
+    const id = setTimeout(() => setStep((s) => s + 1), step === 0 ? 500 : 350);
     return () => clearTimeout(id);
-  }, [step, reduced]);
+  }, [step, reduced, inView]);
 
   return (
-    <div className="glass rounded-2xl p-5 md:p-6 font-mono text-[13px] leading-relaxed shadow-[0_24px_80px_-24px_rgba(81,43,212,0.45)]">
+    <div ref={ref} className="glass rounded-2xl p-5 md:p-6 font-mono text-[13px] leading-relaxed">
       <div className="flex items-center justify-between text-[11px] text-muted mb-4">
         <span>~/app · feat/rate-limit</span>
         <span className="inline-flex items-center gap-1.5">
-          <span className={`size-1.5 rounded-full ${shown >= STAGES.length ? "bg-cta-ink" : "bg-secondary animate-pulse"}`} />
+          <span className={`size-1.5 rounded-full ${shown >= STAGES.length ? "bg-cta-ink" : "bg-muted"}`} />
           {shown >= STAGES.length ? "done" : "running"}
         </span>
       </div>
@@ -55,7 +57,7 @@ export function PipelineTerminal({
               <span
                 aria-hidden="true"
                 className={`w-3 text-center ${
-                  state === "done" ? "text-cta-ink" : state === "running" ? "text-secondary-ink animate-pulse" : "text-muted/40"
+                  state === "done" ? "text-cta-ink" : state === "running" ? "text-foreground" : "text-muted/40"
                 }`}
               >
                 {state === "done" ? "✓" : state === "running" ? "●" : "○"}

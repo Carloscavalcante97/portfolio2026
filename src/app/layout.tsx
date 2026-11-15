@@ -4,7 +4,6 @@ import { ThemeProvider } from "next-themes";
 import { BackgroundCanvas } from "@/components/background-canvas";
 import { Header } from "@/components/header";
 import { SectionNav } from "@/components/section-nav";
-import { WhatsAppButton } from "@/components/whatsapp-button";
 import { LanguageProvider } from "@/components/language-provider";
 import "./globals.css";
 
@@ -52,7 +51,6 @@ export default function RootLayout({
             <Header />
             {children}
             <SectionNav />
-            <WhatsAppButton />
           </LanguageProvider>
         </ThemeProvider>
       </body>

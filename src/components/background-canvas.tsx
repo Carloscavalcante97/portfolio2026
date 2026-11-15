@@ -24,7 +24,7 @@ export function BackgroundCanvas(): React.JSX.Element {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 30% 40%, rgba(81,43,212,0.25), transparent 70%)",
+            "radial-gradient(ellipse 70% 60% at 85% 20%, rgba(100,116,139,0.10), transparent 70%)",
         }}
       />
       {/* Three.js scene — skipped entirely under reduced-motion.

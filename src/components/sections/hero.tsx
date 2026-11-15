@@ -17,10 +17,7 @@ export function HeroSection(): React.JSX.Element {
           <div className="md:col-span-7 flex flex-col items-start gap-6">
             <Reveal>
               <span className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 font-mono text-xs text-muted">
-                <span className="relative flex size-2">
-                  <span className="absolute inline-flex size-full rounded-full bg-cta-ink opacity-60 motion-safe:animate-ping" />
-                  <span className="relative inline-flex size-2 rounded-full bg-cta-ink" />
-                </span>
+                <span className="inline-flex size-2 rounded-full bg-cta-ink" />
                 {t.hero.status}
               </span>
             </Reveal>
@@ -45,7 +42,7 @@ export function HeroSection(): React.JSX.Element {
 
             <Reveal delay={0.24}>
               <div className="flex flex-wrap gap-3">
-                <MagneticButton href={LINKS.whatsapp} external variant="primary">
+                <MagneticButton href={LINKS.email} variant="primary">
                   {t.hero.ctaTalk}
                 </MagneticButton>
                 <MagneticButton href="#projetos" variant="ghost">
@@ -58,10 +55,6 @@ export function HeroSection(): React.JSX.Element {
           <Reveal delay={0.32} className="md:col-span-5">
             {/* Portrait with an offset outline frame and a soft brand glow behind it */}
             <div className="relative mx-auto md:ml-auto md:mr-0 w-full max-w-[280px] md:max-w-[380px]">
-              <div
-                aria-hidden="true"
-                className="absolute -inset-10 rounded-full bg-primary/30 blur-3xl"
-              />
               <div
                 aria-hidden="true"
                 className="absolute inset-0 translate-x-3 translate-y-3 rounded-[2rem] border border-[var(--glass-border)]"

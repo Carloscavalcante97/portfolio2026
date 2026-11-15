@@ -31,7 +31,7 @@ export function ThemeToggle(): React.JSX.Element {
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label={isDark ? "Ativar tema claro" : "Ativar tema escuro"}
-      className="size-8 flex items-center justify-center rounded-md text-foreground hover:text-cta-ink transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+      className="size-8 flex items-center justify-center rounded-md text-foreground hover:text-cta-ink transition-colors focus-visible:outline-2 focus-visible:outline-cta-ink focus-visible:outline-offset-2"
     >
       {isDark ? (
         /* Sun icon — shown in dark mode to switch to light */

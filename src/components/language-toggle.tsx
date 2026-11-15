@@ -15,7 +15,7 @@ export function LanguageToggle(): React.JSX.Element {
         onClick={() => setLang("pt")}
         aria-pressed={lang === "pt"}
         aria-label="Português"
-        className={`font-mono text-xs transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
+        className={`font-mono text-xs transition-colors focus-visible:outline-2 focus-visible:outline-cta-ink focus-visible:outline-offset-2 ${
           lang === "pt" ? "text-foreground" : "text-muted hover:text-foreground"
         }`}
       >
@@ -27,7 +27,7 @@ export function LanguageToggle(): React.JSX.Element {
         onClick={() => setLang("en")}
         aria-pressed={lang === "en"}
         aria-label="English"
-        className={`font-mono text-xs transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
+        className={`font-mono text-xs transition-colors focus-visible:outline-2 focus-visible:outline-cta-ink focus-visible:outline-offset-2 ${
           lang === "en" ? "text-foreground" : "text-muted hover:text-foreground"
         }`}
       >

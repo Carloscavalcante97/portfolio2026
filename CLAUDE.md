@@ -1,10 +1,10 @@
 # Portfólio — Antônio Carlos Cavalcante
 
-Portfólio profissional que funciona como propaganda: o visitante entende em 10 segundos quem é o dev, o que ele entrega, e tem um botão de contato sempre à mão.
+Portfólio profissional voltado a recrutadores: em 10 segundos o visitante entende quem é o dev, o que ele entrega e o que faz além do código (contratação, processo de engenharia, pílulas técnicas, propostas para clientes, mentoria). Tom visual: sóbrio, técnico e confiável.
 
 ## Posicionamento
 
-Engenheiro de software full-stack (Pleno na Souv desde 08/2026): NestJS, Next.js e React Native no produto, Python para dados (ETL, otimização, process mining) e agentes de IA em produção. Diferencial: pipeline de entrega spec-driven com 6 estágios (planner, coder, simplifier, tester, e2e, reviewer), usado diariamente pelo time, que reduziu o tempo de correção em ~75%. Nome com acento: **Antônio**.
+Engenheiro de software full-stack (Pleno na Souv desde 08/2026): NestJS, Next.js e React Native no produto, Python para dados (ETL, otimização, process mining) e agentes de IA em produção. Diferencial: pipeline de entrega spec-driven com 7 agentes (planner, coder, simplifier, tester, e2e, reviewer, committer) e aprovação humana antes de commits, usado diariamente pelo time, que reduziu o tempo de correção em ~75%. Nome com acento: **Antônio**.
 
 ## Stack do site
 
@@ -22,41 +22,41 @@ Engenheiro de software full-stack (Pleno na Souv desde 08/2026): NestJS, Next.js
 - **Light:** neutro claro, mesmo sistema de acentos.
 - Toggle visível no header, persistido.
 
-### Paleta de acentos (remete ao ecossistema backend)
-- Roxo `#512BD4` (roxo .NET/C#) — cor primária
-- Verde esmeralda `#047857` (ink claro `#34d399` no dark) — CTAs e destaques
-- Laranja `#f89820` (Java) — acentos secundários/detalhes
-- Texto em tons de slate; código/mono com fonte tipo JetBrains Mono
+### Paleta (uma cor de destaque só)
+- Verde esmeralda `#047857` (ink claro `#34d399` no dark) é a **única** cor de destaque: CTA principal, links, estado ativo, foco.
+- Todo o resto em tons de slate (texto, tags, bullets, números grandes). Nada de roxo ou laranja como acento.
+- Código/mono com JetBrains Mono.
 
 ### Direção visual — moderno, minimalista, liquid glass
 - **Liquid glass** como linguagem central: superfícies translúcidas com `backdrop-filter: blur + saturate`, borda de 1px semi-transparente com brilho especular no topo (gradiente claro→transparente), leve refração via SVG displacement filter nos cards principais. Vidro sobre o fundo escuro azulado — não glassmorphism 2020 genérico (blur chapado); o vidro reage: highlight especular acompanha o mouse, cards inclinam sutilmente (tilt ≤ 3°).
 - **Minimalismo real**: muito espaço negativo, poucas cores por tela, hierarquia por tamanho/peso tipográfico e não por caixas coloridas. Layout assimétrico com grid editorial — **nada de tudo-centralizado**.
-- Estética "dev backend" com sutileza: detalhes em mono (labels, números de seção `01/`, snippets), sem clichê (nada de Matrix, nada de emoji decorativo).
+- Estética "dev backend" com sutileza: detalhes em mono (labels, snippets), sem clichê. **Sem numeração de seções** (`01 /`), sem pontinhos pulsando, sem faixa de tecnologias rolando.
 - Scroll conta uma história: hero → quem sou → o que entrego → projetos → contato.
 
 ### Anti-"cara de IA" (regras duras)
 - **Proibido:** Inter como fonte única, gradientes roxo→rosa em texto de hero, emojis como ícones, cards idênticos em grid 3×N perfeitamente simétrico, sombras default do Tailwind, glow neon exagerado, hero centralizado com duas pills de botão, textos "Passionate developer crafting digital experiences".
 - **Tipografia:** display com personalidade (ex.: Clash Display, General Sans ou Instrument Serif para contraste) + JetBrains Mono para acentos técnicos; corpo em uma grotesk neutra que não seja Inter (ex.: Geist ou Satoshi). Títulos grandes de verdade (clamp até ~8rem no hero).
 - **Ícones:** um set consistente e fino (Lucide/Phosphor thin), nunca emoji.
-- **Detalhes artesanais que vendem cuidado:** cursor customizado discreto, botões magnéticos nos CTAs, micro-interações com spring física (não ease genérico), grain/noise sutil sobre o fundo, seleção de texto com cor da marca.
+- **Detalhes que vendem cuidado:** botões magnéticos discretos nos CTAs, grain/noise sutil sobre o fundo, seleção de texto com a cor de destaque.
 
-### Animações
-- Hero Three.js: cena shader-based leve (ex.: malha de vidro/fluido refrativa ou campo de partículas com ruído) reagindo a scroll e mouse; câmera scroll-driven entre seções.
-- Reveals por scroll com stagger (Framer Motion + IntersectionObserver), parallax leve entre camadas, números que contam ao entrar em viewport (o "−75%" merece isso).
-- Transição dark/light animada (não um flash — o vidro muda de tonalidade).
-- `prefers-reduced-motion` respeitado e fallback estático em mobile fraco.
+### Fundo e animações (contenção)
+- Fundo: "nebulosa contida" em shader — **um tom frio só**, opacidade baixa (~0.45 dark / ~0.35 light), gás concentrado nas bordas e coluna central limpa. **Sem** reação ao mouse, **sem** intro, **sem** estrelas, **sem** troca de cor por seção. Renderiza sob demanda (~20 fps) e para com a aba oculta.
+- **Conteúdo nunca fica invisível esperando scroll**: nada de reveal com `opacity: 0`. Números aparecem já com o valor final no HTML (sem contar a partir de 0).
+- Nenhuma animação em loop infinito. O terminal do pipeline roda uma vez ao entrar na tela e para em "done".
+- `prefers-reduced-motion` respeitado (a cena 3D não carrega).
 
 ## Seções (uma página, scroll contínuo)
 
-1. **Hero** — status (cargo · cidade), nome, título, foto (`public/antonio.jpg`), CTAs WhatsApp e "Ver projetos", faixa de 4 métricas (−75%, −70%, +35%, +15%) e marquee de stack logo abaixo.
-2. **01 Sobre** — 2 parágrafos + ficha (cargo, base, formação, idiomas).
-3. **02 Projetos** — sistemas reais da Souv em produção, **sem citar clientes** (domínio genérico: "rede hospitalar", "fábrica de embalagens"...). Cada card diz o papel do Antônio; trabalho de time é dito como tal (ex.: otimizador genético do APS).
-4. **03 Pipeline** — painel com o terminal animado do `/pipeline` + −75%, e lista de repos abertos (stack-cli, portfolio2026, Gerenciamento-De-Produtos).
-5. **04 Experiência** — Souv (Pleno e Full Stack), Denzel Eventos, Pontes Hotéis.
-6. **05 Stack** — grupos Produto / Dados / IA e automação / Plataforma + linha "Também".
-7. **06 Contato** — WhatsApp (`https://wa.me/5511947832280`), e-mail, LinkedIn (`/in/antonio-dev-/`), GitHub. Sem formulário.
+1. **Hero** — status (Engenheiro de Software Pleno na Souv · cidade), nome, título, foto (`public/antonio.jpg`), CTA principal "Entrar em contato" (e-mail) e "Ver projetos", faixa de 4 métricas (−75%, −70%, +35%, +15%).
+2. **Sobre** — 2 parágrafos + ficha (cargo, base, formação com previsão 2027, idiomas).
+3. **Projetos** — sistemas reais da Souv em produção, **sem citar clientes nem detalhes que os identifiquem** (nada de nome de ERP, gateway de pagamento, modelo de negócio específico ou achados de segurança). Cada card diz o papel do Antônio; trabalho de time é dito como tal.
+4. **Além do código** — contratação, processo de engenharia, pílulas técnicas, propostas para clientes, mentoria. Linhas editoriais, não cards. Números só se forem reais.
+5. **Pipeline** — painel com o terminal do `/pipeline` (7 agentes) + −75%, e lista de repos abertos (stack-cli, portfolio2026, Gerenciamento-De-Produtos).
+6. **Experiência** — Souv (Pleno e Júnior), Denzel Eventos, Pontes Hotéis.
+7. **Stack** — grupos Produto / Dados / IA e automação / Plataforma + linha "Também".
+8. **Contato** — "Aberto a novas oportunidades": e-mail (principal), LinkedIn (`/in/antonio-dev-/`), GitHub e WhatsApp (`https://wa.me/5511947832280`) por último. Sem formulário.
 
-Botão flutuante de WhatsApp presente durante todo o scroll. Conteúdo PT/EN fica todo em `src/content/site.ts`.
+Sem botão flutuante. Conteúdo PT/EN fica todo em `src/content/site.ts`.
 
 ## Conteúdo
 

@@ -34,7 +34,7 @@ export function PipelineSection(): React.JSX.Element {
   return (
     <section id="pipeline" className="scroll-mt-14 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeading index="03" label={p.label} heading={p.heading} />
+        <SectionHeading label={p.label} heading={p.heading} />
 
         {/* Featured panel: the pitch on the left, the live run on the right */}
         <Reveal>
@@ -47,7 +47,7 @@ export function PipelineSection(): React.JSX.Element {
               <ul className="flex flex-col gap-2">
                 {p.points.map((point) => (
                   <li key={point} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
-                    <span aria-hidden="true" className="font-mono text-primary-ink">—</span>
+                    <span aria-hidden="true" className="font-mono text-muted/60">—</span>
                     <span>{point}</span>
                   </li>
                 ))}
@@ -58,7 +58,7 @@ export function PipelineSection(): React.JSX.Element {
                     to={p.metric.value}
                     prefix={p.metric.prefix}
                     suffix={p.metric.suffix}
-                    className="font-display text-7xl md:text-8xl leading-none text-primary-ink"
+                    className="font-display text-7xl md:text-8xl leading-none text-foreground"
                   />
                   <span className="font-mono text-sm text-muted pb-2">{p.metric.caption}</span>
                 </div>
@@ -101,7 +101,7 @@ export function PipelineSection(): React.JSX.Element {
                 <span className="md:col-span-5 text-muted text-sm leading-relaxed">{repo.pitch}</span>
                 <span className="md:col-span-3 flex flex-wrap gap-x-3 gap-y-1 md:justify-end">
                   {repo.tags.map((tag) => (
-                    <span key={tag} className="font-mono text-xs text-secondary-ink">
+                    <span key={tag} className="font-mono text-xs text-muted">
                       {tag}
                     </span>
                   ))}
