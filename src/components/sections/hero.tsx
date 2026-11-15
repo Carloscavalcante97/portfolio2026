@@ -19,7 +19,7 @@ export function HeroSection(): React.JSX.Element {
               {t.hero.status}
             </span>
 
-            <h1 className="text-foreground" style={{ fontSize: "clamp(4.5rem, 14vw, 12.5rem)" }}>
+            <h1 className="text-foreground" style={{ fontSize: "clamp(4.5rem, 10.5vw, 10rem)" }}>
               <span className="type-heavy block">Antônio</span>
               <span className="type-accent block text-cta-ink leading-[0.9] -mt-[0.04em]">Cavalcante</span>
             </h1>
